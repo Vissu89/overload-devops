@@ -1,0 +1,42 @@
+export const PROGRAM = [
+  { name: 'Day 1 – Push', exercises: [
+    { name: 'Bench Press', target: '4 x 6-10' },
+    { name: 'Overhead Press', target: '4 x 8-10' },
+    { name: 'Incline DB Press', target: '3 x 10-12' },
+    { name: 'Lateral Raises', target: '3 x 12-15' },
+    { name: 'Tricep Rope Pushdown', target: '3 x 12-15' },
+    { name: 'Cable Chest Fly', target: '3 x 12' },
+  ]},
+  { name: 'Day 2 – Pull', exercises: [
+    { name: 'Deadlift / Romanian Deadlift', target: '4 x 5-8' },
+    { name: 'Lat Pulldown / Pull-Ups', target: '4 x 8-10' },
+    { name: 'Seated Cable Row', target: '3 x 10-12' },
+    { name: 'Single-Arm DB Row', target: '3 x 10 each' },
+    { name: 'Face Pulls', target: '3 x 15' },
+    { name: 'Barbell / DB Curl', target: '3 x 12' },
+  ]},
+  { name: 'Day 3 – Quads', exercises: [
+    { name: 'Barbell Back Squat', target: '4 x 6-8' },
+    { name: 'Leg Press', target: '4 x 10-12' },
+    { name: 'Walking Lunges', target: '3 x 12 each' },
+    { name: 'Leg Extension', target: '3 x 15' },
+    { name: 'Bulgarian Split Squat', target: '3 x 10 each' },
+    { name: 'Calf Raises', target: '4 x 15' },
+  ]},
+  { name: 'Day 4 – Hamstrings', exercises: [
+    { name: 'Romanian Deadlift', target: '4 x 8-10' },
+    { name: 'Lying Leg Curl', target: '4 x 10-12' },
+    { name: 'Hip Thrust', target: '4 x 10-12' },
+    { name: 'Sumo / Stiff-Leg Deadlift', target: '3 x 8' },
+    { name: 'Good Mornings', target: '3 x 12' },
+    { name: 'Seated Leg Curl', target: '3 x 15' },
+  ]},
+  { name: 'Day 5 – Core & Shoulders', exercises: [
+    { name: 'Arnold / DB Shoulder Press', target: '4 x 10-12' },
+    { name: 'Cable Lateral Raise', target: '3 x 15' },
+    { name: 'Rear Delt Fly', target: '3 x 15' },
+    { name: 'Cable Crunch / Ab Rollout', target: '4 x 12-15' },
+    { name: 'Hanging Leg Raise', target: '3 x 12' },
+    { name: 'Pallof Press', target: '3 x 12 each' },
+  ]},
+]
