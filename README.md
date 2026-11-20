@@ -21,7 +21,7 @@ npm run dev
 
 ## Progress
 - [x] Phase 1 — Repo + app
-- [ ] Phase 2 — Docker
+- [x] Phase 2 — Docker
 - [ ] Phase 3 — Terraform
 - [ ] Phase 4 — Ansible + k3s
 - [ ] Phase 5 — Kubernetes manifests + HTTPS
