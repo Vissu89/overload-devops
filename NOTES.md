@@ -13,3 +13,5 @@
 | 2026-11-20 | 2 | Container unhealthy (streak 6) while app returned 200 | Health check pointed at non-existent path | Diagnosed by testing app directly with curl | In K8s, a bad liveness probe kills healthy pods → CrashLoopBackOff |
 | 2026-11-20 | 2 | Old container still running old image after rebuild | Containers keep the image they started with | Recreated container | Rebuilding an image doesn't update running containers (K8s needs a rollout) |
 | 2026-11-23 | 3 | Drift: VPC name tag changed + HotFix tag added in console | Manual change outside Terraform | 'terraform plan' detected it | reverted with terraform apply | Code is source of truth: revert or adopt the drift; detect with scheduled 'plan -detailed-exitcode' |
+| 2026-11-23 | 3 | `terraform validate`: "Variables not allowed" in terraform.tfvars | File had literal `${MYIP}` (heredoc was quoted) | Regenerated with real IP | `<<'EOF'` keeps `$` literal; `<<EOF` expands variables |
+| 2026-11-23 | 3 | SSH "Permission denied (publickey)" | Ran ssh from PowerShell; key lives in WSL `~/.ssh` | Ran from WSL | Windows and WSL have separate home dirs; check which key is offered (`ssh -v`) |
