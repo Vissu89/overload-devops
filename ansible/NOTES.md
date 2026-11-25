@@ -1,0 +1,1 @@
+| 2026-11-25 | 4 | Baseline capacity check | k3s + system pods use ~1.1 GiB (57%) of t3.small RAM before any app | Recorded baseline; plan t3.medium before Phase 7 monitoring | Measure headroom before adding workloads (`kubectl top`) |
