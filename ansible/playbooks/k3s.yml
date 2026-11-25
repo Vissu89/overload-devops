@@ -1,0 +1,44 @@
+---
+- name: Install k3s server
+  hosts: k3s_server
+  become: true
+  vars:
+    k3s_version: v1.37.2+k3s1
+    local_kubeconfig: "{{ lookup('env', 'HOME') }}/.kube/overload-config"
+
+  tasks:
+    - name: Install k3s (skipped if already installed)
+      ansible.builtin.shell: |
+        curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={{ k3s_version }} \
+          sh -s - server --tls-san {{ ansible_host }} --write-kubeconfig-mode 0600
+      args:
+        creates: /usr/local/bin/k3s
+
+    - name: Wait until the node is Ready
+      ansible.builtin.command: k3s kubectl get nodes --no-headers
+      register: nodes
+      until: "' Ready ' in nodes.stdout"
+      retries: 30
+      delay: 10
+      changed_when: false
+
+    - name: Read kubeconfig from the server
+      ansible.builtin.slurp:
+        src: /etc/rancher/k3s/k3s.yaml
+      register: kubeconfig
+
+    - name: Ensure ~/.kube exists locally
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.kube"
+        state: directory
+        mode: "0700"
+      delegate_to: localhost
+      become: false
+
+    - name: Save kubeconfig locally, pointing at the public IP
+      ansible.builtin.copy:
+        content: "{{ kubeconfig.content | b64decode | replace('127.0.0.1', ansible_host) }}"
+        dest: "{{ local_kubeconfig }}"
+        mode: "0600"
+      delegate_to: localhost
+      become: false
