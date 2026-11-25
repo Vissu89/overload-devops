@@ -8,3 +8,4 @@ dist/
 tfplan
 
 terraform.tfvars
+ansible/inventory.ini
