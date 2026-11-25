@@ -20,3 +20,4 @@
 | 2026-11-25 | 4 | Ansible: "No inventory was parsed" | Config named `ansible-cfg` instead of `ansible.cfg` | Renamed | `ansible --version` shows which config is loaded; `-i` bypasses it |
 | 2026-11-25 | 4 | SSH hardening must override cloud-init defaults | sshd uses the FIRST value it reads in `sshd_config.d/` | Named file `00-hardening.conf`; verified with `sshd -T` | Verify effective config, not just "ok" |
 | 2026-11-25 | 4 | Thought server rebooted during playbook | It was the SSH handler restarting sshd; 'uptime -s' showed boot time = instance creation | Verified with 'uptime -s' and the reboot task's "skipping" | verify with evidence; handlers run at end of play |
+| 2026-11-25 | 4 | PR #8 merged without k3s.yml | file was never staged; git diff doesn’t show untracked files, so the pre-delete check passed | added in a follow-up PR. Learning: check git status (not just git diff) before merging and deleting branches.
