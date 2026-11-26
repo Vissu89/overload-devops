@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: overload
+  namespace: overload
+spec:
+  selector:
+    app: overload
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
